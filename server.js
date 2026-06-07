@@ -22,11 +22,11 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "https://va.vercel-scripts.com"],
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "https://assets.leetcode.com", "https://leetcode.com", "https://avatars.githubusercontent.com"],
-      connectSrc: ["'self'", "https://leetcode.com", "https://api.github.com"],
+      connectSrc: ["'self'", "https://leetcode.com", "https://api.github.com", "https://va.vercel-scripts.com"],
       objectSrc: ["'none'"]
     }
   },
