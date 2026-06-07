@@ -4,11 +4,11 @@ const { getSecret } = require('../utils/getSecret');
 const connectDB = async () => {
   try {
     const mongoURI = getSecret('MONGO_URI', null, true);
-    
+
     // Connect to MongoDB using recommended mongoose options
     const conn = await mongoose.connect(mongoURI);
-    
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+
+    console.log(`MongoDB Connected`);
   } catch (error) {
     console.error(`MongoDB connection error: ${error.message}`);
     // Wait and retry connection
