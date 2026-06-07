@@ -54,15 +54,15 @@ app.use('/api/reviews', reviewRoutes);
 
 // Serve frontend static assets
 const path = require('path');
-const frontendDistPath = path.join(__dirname, '../frontend/dist');
-app.use(express.static("public"));
+const publicPath = path.join(__dirname, 'public');
+app.use(express.static(publicPath));
 
-// Fallback client-side router for SPA (Vite)
+// Fallback client-side router for SPA
 app.get('*', (req, res, next) => {
   if (req.path.startsWith('/api/')) {
     return next();
   }
-  res.sendFile(path.join(frontendDistPath, 'index.html'));
+  res.sendFile(path.join(publicPath, 'index.html'));
 });
 
 // 404 Route handler
